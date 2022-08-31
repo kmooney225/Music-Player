@@ -1,8 +1,13 @@
-# Getting Started with Create React App
+# Music-Player
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This is a music player that I am creating using React and Sass
 
-## Available Scripts
+## Objective
+Become more familiar with react and sass, along with creating a music player for my 
+portfolio website to play my music
+
+## How to run
 
 In the project directory, you can run:
 
