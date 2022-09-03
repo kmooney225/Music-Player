@@ -30,13 +30,19 @@ function App() {
     const roundedDuration = Math.round(duration)
     const animation= Math.round((roundedCurrent / roundedDuration) * 100)
 
-    setSongInfo({...songInfo, currentTime: current, duration, AnimationPercentage:animation})
+    setSongInfo({
+      ...songInfo, 
+      currentTime: current, 
+      duration: duration, 
+      AnimationPercentage:animation
+    })
   }
 
   const onEndedHandler = async () => {
-    let currentIndex = songs.findIndex((song) => song.id === currentSong.id)
-    await setCurrentSong(songs[(currentIndex + 1) % songs.length])
-    if (isPlaying) audioRef.current.play()
+    // let currentIndex = songs.findIndex((song) => song.id === currentSong.id)
+    // setCurrentSong(songs[(currentIndex + 1) % songs.length])
+    // if (isPlaying) await audioRef.current.play()
+    setIsPlaying(false)
   }
   
 
