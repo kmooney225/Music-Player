@@ -6,10 +6,10 @@ const Nav = ({setLibraryStatus, libraryStatus, setDarkMode, darkMode }) => {
 
     const mode = () => {
         if(darkMode){
-            return 'Light Mode'
+            return 'Dark Mode'
         }
         else{
-            return 'Dark Mode'
+            return 'Light Mode'
         }
     }
 

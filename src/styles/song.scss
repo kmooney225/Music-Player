@@ -9,6 +9,7 @@
       border-radius: 50%;
       transition: all 2s ease;
     }
+
     h2 {
       padding: 3rem 1rem 1rem 1rem;
     }
@@ -24,16 +25,15 @@
       }
     }
   }
-  
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
+
+  .rotate-cover {
+    animation: rotation 10s forwards infinite linear;
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
     }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .rotateSong {
-    animation: rotate 20s linear forwards infinite;
   }

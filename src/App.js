@@ -10,6 +10,7 @@ function App() {
 
   const audioRef = useRef(null);
 
+
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -37,6 +38,7 @@ function App() {
     await setCurrentSong(songs[(currentIndex + 1) % songs.length])
     if (isPlaying) audioRef.current.play()
   }
+  
 
   return (
     <div className={`App ${darkMode ? 'dark-active' : "" }`}>  
@@ -47,7 +49,7 @@ function App() {
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-        <Song currentSong={currentSong} />
+        <Song currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
         <Player 
           audioRef={audioRef}
           setIsPlaying={setIsPlaying} 
