@@ -19,6 +19,7 @@
 
 .library-song {
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 1rem 2rem 1rem 2rem;
   cursor: pointer;
@@ -62,15 +63,35 @@
 }
 
 .selected {
-  background: rgb(194, 208, 253);
+  background: rgb(213, 108, 108);
 }
 .active-library {
-  transform: translateX(0%);
+  transform: translateX(-5%);
   opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
   .library {
     width: 100%;
+  }
+}
+
+.dark-active {
+  h2 {
+    color: rgb(202, 202, 202);
+  }
+  .library {
+    background: rgb(10, 0, 0);
+    color: rgb(202, 202, 202);
+    box-shadow: 2px 2px 50px rgb(66, 2, 2);
+    }
+
+  .library-song {
+    &:hover {
+      background: rgb(82, 30, 30);
+    }
+  }
+  .selected {
+    background: rgb(109, 0, 0);
   }
 }

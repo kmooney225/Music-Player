@@ -1,5 +1,5 @@
 .player {
-    min-height: 20vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,5 +67,12 @@
     }
     .play-control {
       width: 80%;
+    }
+  }
+  
+  .dark-active {
+    color: rgb(202, 202, 202);
+    .player {
+      background-color: rgb(10, 0, 0);
     }
   }

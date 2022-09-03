@@ -20,11 +20,27 @@ nav {
       color: white;
     }
   }
+
   
   @media screen and (max-width: 768px) {
     nav {
       button {
         z-index: 10;
+      }
+    }
+  }
+
+  .dark-active {
+    button {
+      color: white;
+      border: rgb(239, 239, 239);
+      cursor: pointer;
+      padding: 0.5rem;
+      border: 2px solid rgb(65, 65, 65);
+      transition: all 0.3s ease;
+      &:hover {
+        background: rgb(65, 65, 65);
+        color: white;
       }
     }
   }

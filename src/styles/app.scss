@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-size: contain;
   }
   
   body {
@@ -24,6 +25,24 @@
   h4 {
     color: rgb(100, 100, 100);
     font-weight: 400;
+  }
+
+  .dark-active {
+      * {
+      background-color: rgb(10, 0, 0);
+      background-size: contain;
+      h1 {
+        color: rgb(255, 255, 255);
+      }
+      h2 {
+        color: rgb(255, 255, 255);
+      }
+      h3,
+      h4 {
+        color: rgb(202, 202, 202);
+        font-weight: 400;
+      }
+    }
   }
   
   @import "./song";
