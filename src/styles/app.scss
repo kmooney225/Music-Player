@@ -2,17 +2,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-h1,h2,h3{
-    color: rgb(54, 54, 54);
-}
-
-h3, h4{
+  }
+  
+  body {
+    font-family: "Lato", sans-serif;
+  }
+  .App {
+    transition: all 0.5s ease;
+  }
+  .library-active {
+    margin-left: 30%;
+  }
+  
+  h1 {
+    font-size: 1rem;
+  }
+  h2 {
+    color: rgb(51, 51, 51);
+  }
+  h3,
+  h4 {
+    color: rgb(100, 100, 100);
     font-weight: 400;
-    color: rgb(91, 91, 91);
-}
-
-@import "./song.scss";
-@import "./player.scss";
-@import "./library.scss";
-@import "./nav.scss";
+  }
+  
+  @import "./song";
+  @import "./player";
+  @import "./library";
+  @import "./nav";

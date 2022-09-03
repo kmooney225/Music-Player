@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { playAudio } from './Util';
 import {faPlay, 
         faAngleLeft,
         faAngleRight,
@@ -18,24 +17,24 @@ const Player = ({
     setCurrentSong,
     setSongs,
     }) => {
-        useEffect(() => {
-            const newSongs = songs.map((song) => {
-                if(song.id === currentSong.id){
-                    return{
-                        ...song,
-                        active: true,
-                    }
-                }else{
-                    return{
-                        ...song,
-                        active: false,
-                    }
-                }
-            })
-            setSongs(newSongs)
-        },[currentSong])
 
-
+    const activeLibraryHandler = (nextPrev) =>
+    { 
+        const newSongs = songs.map((song) => {
+        if(song.id === nextPrev.id){
+            return{
+                ...song,
+                active: true,
+            }
+        }else{
+            return{
+                ...song,
+                active: false,
+            }
+        }
+    })
+    setSongs(newSongs)
+    }
 
     const playSongHandler = () => {
         if(isPlaying){
@@ -58,36 +57,48 @@ const Player = ({
         audioRef.current.currentTime = e.target.value;
         setSongInfo({...songInfo, currentTime: e.target.value})
     }
-    const skipTrackHandler = (direction) =>{
+    const skipTrackHandler = async (direction) =>{
         let currentIndex = songs.findIndex((song) => song.id === currentSong.id)
         if (direction === "skip-foward"){
-            setCurrentSong(songs[(currentIndex + 1) % songs.length])
+            await setCurrentSong(songs[(currentIndex + 1) % songs.length])
+            activeLibraryHandler(setCurrentSong(songs[(currentIndex + 1) % songs.length]))
         }
         if (direction === "skip-back"){
             if((currentIndex - 1) % songs.length === -1){
-                setCurrentSong(songs[songs.length - 1])
-                playAudio(isPlaying, audioRef)
+                await setCurrentSong(songs[songs.length - 1])
+                activeLibraryHandler(setCurrentSong(songs[songs.length - 1]))
+                if(isPlaying) audioRef.current.play()
                 return;
             }
-            setCurrentSong(songs[(currentIndex - 1) % songs.length])
+            await setCurrentSong(songs[(currentIndex - 1) % songs.length])
+            activeLibraryHandler(setCurrentSong(songs[(currentIndex - 1) % songs.length]))
         }
-        playAudio(isPlaying, audioRef)
+        if(isPlaying) audioRef.current.play()
+    }
+
+    const trackAnim = {
+        transform: `translateX(${songInfo.animationPercentage}%)`
     }
 
     return(
         <div className="player">
             <div className="time-control">
                 <p>{getTime(songInfo.currentTime)}</p>
-                <input 
-                    min={0} 
-                    max={songInfo.duration || 0} 
-                    value={songInfo.currentTime} 
-                    onChange={dragHandler}
-                    type="range" 
-                  />
+                    <div style={{background: `linear-gradient(to right, ${currentSong.color[0]},${currentSong.color[1]})`,
+                        }}
+                        className="track">
+                        <input
+                            min={0} 
+                            max={songInfo.duration || 0} 
+                            value={songInfo.currentTime} 
+                            onChange={dragHandler}
+                            type="range" 
+                        />
+                        <div style={trackAnim} className="animate-track"></div>
+                    </div>
                 <p>{songInfo.duration ? getTime(songInfo.duration) : '0:00'}</p>
             </div>
-            <div className="player-control">
+            <div className="play-control">
                 <FontAwesomeIcon 
                     onClick={() => skipTrackHandler('skip-back')} 
                     className="skip-back" 
