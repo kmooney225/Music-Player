@@ -34,11 +34,14 @@
 }
 .song-description {
   padding-left: 1rem;
+  background: transparent;
   h3 {
     font-size: 1rem;
+    background: transparent;
   }
   h4 {
     font-size: 0.7rem;
+    background: transparent;
   }
 }
 
@@ -79,9 +82,10 @@
 .dark-active {
   h2 {
     color: rgb(202, 202, 202);
+    background: rgb(20, 0, 0);
   }
   .library {
-    background: rgb(10, 0, 0);
+    background: rgb(20, 0, 0);
     color: rgb(202, 202, 202);
     box-shadow: 2px 2px 50px rgb(66, 2, 2);
     }
