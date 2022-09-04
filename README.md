@@ -1,5 +1,7 @@
 # Music-Player
 
+https://user-images.githubusercontent.com/37048222/188316570-b7d15c2a-184c-43ad-ac3a-0090088d2c8e.mp4
+
 ## Final Product
 
 You can check out my deployed app on the following link:
