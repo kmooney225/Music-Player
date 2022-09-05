@@ -8,11 +8,11 @@ You can check out my deployed app on the following link:
 https://cool-mandazi-092c82.netlify.app/
 
 ## Description
-This is a music player that I am creating using React and Sass
+This is a music player that I am creating using React and Sass.
 
 ## Objective
 Become more familiar with react and sass, along with creating a music player for my 
-portfolio website to play my music
+portfolio website to play my music.
 
 ## Lessons 
 
